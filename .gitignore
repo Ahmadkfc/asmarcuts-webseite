@@ -1,0 +1,8 @@
+# Geheime Schlüssel nie ins Repository
+.env
+.env.*
+*.key
+*.pem
+secrets*
+node_modules/
+.DS_Store

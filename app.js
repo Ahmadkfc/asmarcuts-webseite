@@ -83,7 +83,7 @@ const FINE = matchMedia("(hover: hover) and (pointer: fine)").matches;
   let renderer;
   try{ renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:"high-performance"}); }
   catch(e){ document.body.classList.add("no3d"); canvas.remove(); return; }
-  const mobile=()=>innerWidth<820;
+  const mobile=()=>innerWidth<821;
   renderer.setPixelRatio(Math.min(devicePixelRatio, mobile()?1.5:1.75));
   renderer.outputEncoding=THREE.sRGBEncoding;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
@@ -160,7 +160,7 @@ const FINE = matchMedia("(hover: hover) and (pointer: fine)").matches;
   floor.rotation.x=-Math.PI/2; floor.position.y=-2.45; rig.add(floor);
 
   /* ---- logo head as a neon sign in the scene, drawn on top to bottom ---- */
-  const HEAD=getComputedStyle(document.documentElement).getPropertyValue("--head").trim().replace(/^url\(["']?/,"").replace(/["']?\)$/,"");
+  const HEAD="logo-kopf.png";
   const headGroup=new THREE.Group(); scene.add(headGroup);
   const neonMat=(tex,op)=>new THREE.ShaderMaterial({
     uniforms:{map:{value:tex},color:{value:new THREE.Color(0xffb547)},hot:{value:new THREE.Color(0xfff0cc)},opacity:{value:op},reveal:{value:REDUCE?1.2:0}},
